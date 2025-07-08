@@ -1,0 +1,572 @@
+/* --- Global & Variables --- */
+:root {
+    --bg-color: #11131E;
+    --pane-bg: #1C1E2D;
+    --text-color: #FFFFFF;
+    --secondary-text-color: #A9B1D6;
+    --accent-color: #7AA2F7;
+    --border-color: #3B4261;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+section {
+    padding: 60px 0;
+}
+
+section[id] {
+    scroll-margin-top: 60px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--secondary-text-color);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 40px;
+}
+
+/* --- Layout Utama --- */
+.portfolio-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.left-pane {
+    width: 45%;
+    padding: 60px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+}
+
+.right-pane {
+    width: 55%;
+    padding: 60px;
+}
+
+/* --- Konten Kiri --- */
+.intro-text {
+    color: var(--secondary-text-color);
+    margin-bottom: 8px;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    max-width: 400px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--pane-bg);
+    border: 1px solid var(--border-color);
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.nav-button.active,
+.nav-button:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+}
+
+.nav-button i {
+    font-size: 1rem;
+}
+
+footer {
+    font-size: 0.8rem;
+    color: var(--secondary-text-color);
+    padding-left: 60px;
+    /* <-- TAMBAHAN: Geser teks ke kanan */
+    margin-top: -20px;
+    /* <-- Kurangi nilainya untuk menaikkan footer */
+    line-height: 1.5;
+}
+
+footer .fa-heart {
+    color: var(--accent-color);
+}
+
+/* --- Konten Kanan --- */
+.right-pane p {
+    font-size: 1rem;
+    margin-bottom: 1.5em;
+    color: var(--secondary-text-color);
+}
+
+.highlight {
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+#typed-text {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+
+/* --- Timeline (Experience) --- */
+.timeline {
+    position: relative;
+}
+
+.timeline-item {
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    bottom: -40px;
+    width: 2px;
+    background-color: var(--border-color);
+}
+
+.timeline-item:last-child::before {
+    display: none;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    z-index: 1;
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 4px !important;
+}
+
+.timeline-title a {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.timeline-title a:hover {
+    color: var(--accent-color);
+}
+
+.timeline-company {
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 12px !important;
+    font-weight: 500;
+}
+
+.timeline-description {
+    font-size: 0.95rem;
+}
+
+/* --- Projects --- */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-card {
+    display: block;
+    text-decoration: none;
+    background-color: var(--pane-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.project-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.status-pill {
+    background-color: rgba(63, 185, 80, 0.1);
+    color: var(--accent-color);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.project-header i {
+    font-size: 1.2rem;
+    color: var(--secondary-text-color);
+}
+
+.project-title {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.project-description {
+    font-size: 0.95rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 16px !important;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-stack span {
+    background-color: var(--bg-color);
+    color: var(--accent-color);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+/* --- Activities --- */
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.activity-card {
+    background-color: var(--pane-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.activity-date {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+}
+
+.activity-title {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.activity-organizer {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 12px;
+}
+
+.activity-participants {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    text-align: center;
+}
+
+.contact-illustration {
+    max-width: 250px;
+    margin-bottom: 20px;
+}
+
+.btn.contact-btn {
+    /* 1. Menggunakan flexbox untuk alignment yang presisi */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    /* 2. Jarak antara ikon dan teks */
+
+    /* Aturan dari kode Anda, sudah bagus! */
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn.contact-btn:hover {
+    /* 3. Warna hover dibuat sedikit lebih gelap dari warna utama */
+    background-color: #92b3f8;
+    transform: translateY(-3px);
+}
+
+/* --- Desain Responsif --- */
+@media (max-width: 1024px) {
+    .portfolio-container {
+        flex-direction: column;
+    }
+
+    .left-pane,
+    .right-pane {
+        width: 100%;
+        position: static;
+        height: auto;
+    }
+
+    .left-pane {
+        padding-bottom: 40px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .left-pane,
+    .right-pane {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Pastikan variabel ini ada di :root CSS Anda */
+:root {
+    --bg-color: #11131E;
+    --pane-bg: #1C1E2D;
+    --text-color: #FFFFFF;
+    --secondary-text-color: #A9B1D6;
+    --accent-color: #7AA2F7;
+    --border-color: #3B4261;
+}
+
+/* Styling untuk container navbar pill */
+.pill-nav {
+    position: relative;
+    /* 1. Diperlukan agar 'nav-indicator' bisa diposisikan */
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--pane-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 8px;
+    gap: 0px;
+}
+
+.nav-item {
+    position: relative;
+    /* 2. Agar teks berada di atas indikator */
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 12px;
+    /* Sedikit penyesuaian padding */
+    border-radius: 10px;
+    transition: color 0.4s ease;
+    /* Transisi hanya untuk warna teks */
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* 3. Saat aktif, hanya warna teks yang berubah menjadi putih */
+.nav-item.active {
+    color: #fff;
+}
+
+.nav-item i {
+    font-size: 1.1rem;
+    min-width: 20px;
+    text-align: center;
+    margin-right: 8px;
+    /* Beri jarak default agar layout stabil */
+}
+
+/* 4. ELEMEN BARU: Indikator yang akan bergeser */
+/* Cari blok ini di CSS Anda */
+.nav-indicator {
+    position: absolute;
+    z-index: 1;
+    top: 6px;
+    /* Sesuaikan dengan padding .pill-nav */
+    height: calc(100% - 12px);
+    /* Sesuaikan dengan padding .pill-nav */
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    /* Dibuat sedikit lebih bulat */
+
+    /* GANTI BARIS TRANSISI DI BAWAH INI */
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Styling untuk teks di dalam tombol */
+.nav-item span {
+    font-weight: 500;
+    white-space: nowrap;
+    /* Mencegah teks turun baris */
+    opacity: 0;
+    /* Sembunyikan teks secara default */
+    width: 0;
+    margin-left: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Styling untuk tombol yang AKTIF */
+.nav-item.active {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* Tampilkan teks saat tombol AKTIF */
+.nav-item.active span {
+    opacity: 1;
+    width: auto;
+    /* Lebar teks menyesuaikan konten */
+    margin-left: 8px;
+    /* Jarak antara ikon dan teks */
+}
+
+/* ========================================= */
+/*          TAMBAHAN UNTUK RESPONSIVE        */
+/* ========================================= */
+
+/* Terapkan gaya ini untuk tablet dan layar yang lebih kecil */
+@media (max-width: 1024px) {
+
+    /* 1. Mengubah layout utama menjadi vertikal (satu kolom) */
+    .portfolio-container {
+        flex-direction: column;
+    }
+
+    /* 2. Mengatur ulang panel kiri dan kanan agar lebarnya penuh */
+    .left-pane,
+    .right-pane {
+        width: 100%;
+        position: static;
+        /* Menghapus efek 'sticky' pada panel kiri */
+        height: auto;
+        /* Tinggi menyesuaikan konten */
+        padding: 40px;
+        /* Menyesuaikan padding */
+    }
+
+    .left-pane {
+        text-align: left;
+        /* Agar konten di header menjadi di tengah */
+    }
+
+    .pill-nav {
+        justify-content: center;
+        /* Pusatkan navigasi pil di tengah */
+    }
+
+    /* 3. Menyesuaikan padding footer */
+    footer {
+        padding-left: 40px;
+        padding-right: 40px;
+        text-align: center;
+    }
+}
+
+
+/* Terapkan gaya ini untuk layar mobile */
+@media (max-width: 768px) {
+
+    /* 1. Mengurangi ukuran font agar tidak terlalu besar */
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 2rem;
+    }
+
+    /* 2. Mengatur ulang grid pada bagian Projects dan Activities */
+    .activity-grid {
+        /* Mengubah grid menjadi satu kolom */
+        grid-template-columns: 1fr;
+    }
+
+    /* 3. Mengurangi padding lebih lanjut */
+    .left-pane,
+    .right-pane {
+        padding: 30px 20px;
+    }
+
+    footer {
+        padding: 20px;
+    }
+}

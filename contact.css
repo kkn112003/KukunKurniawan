@@ -1,0 +1,181 @@
+/* --- Variabel & Reset Global --- */
+:root {
+    --bg-dark: #11131E;
+    --card-dark: #1C1E2D;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A9B1D6;
+    --accent-color: #7AA2F7;
+    --border-color: #3B4261;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* --- Layout Utama --- */
+.contact-container {
+    width: 100%;
+    max-width: 1100px;
+    background-color: var(--card-dark);
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* --- Sisi Kiri: Info Kontak --- */
+.contact-info {
+    background-color: rgba(0, 0, 0, 0.1);
+    flex-basis: 40%;
+    padding: 3rem;
+}
+
+.info-title {
+    color: var(--text-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.info-description {
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.info-item i {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    width: 25px;
+}
+
+.social-links {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* --- Sisi Kanan: Form Kontak --- */
+.contact-form {
+    flex-basis: 60%;
+    padding: 3rem;
+}
+
+.form-title {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+}
+
+.input-group textarea {
+    resize: none;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Efek Floating Label */
+.input-group input:focus+label,
+.input-group input:valid+label,
+.input-group textarea:focus+label,
+.input-group textarea:valid+label {
+    top: -16px;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-bottom-color: var(--accent-color);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 8px;
+    color: var(--bg-dark);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #92b3f8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(122, 162, 247, 0.2);
+}
+
+/* --- Desain Responsif --- */
+@media (max-width: 900px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-info,
+    .contact-form {
+        flex-basis: 100%;
+    }
+
+    .contact-info {
+        padding: 2rem;
+    }
+
+    .contact-form {
+        padding: 2rem;
+    }
+}
